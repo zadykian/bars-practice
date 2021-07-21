@@ -1,6 +1,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Bars.Homework.Common;
+using Bars.Homework.MemoryManagement.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace Bars.Homework.MemoryManagement
@@ -21,6 +23,8 @@ namespace Bars.Homework.MemoryManagement
 					options.ValidateScopes = true;
 					options.ValidateOnBuild = true;
 				})
+				.ConfigureServices(services =>
+					services.AddTransient<IVerySeriousBusiness, VerySeriousBusiness>())
 				.EnableHttpApi()
 				.Build()
 				.RunAsync();

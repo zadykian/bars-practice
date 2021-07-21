@@ -70,6 +70,7 @@ namespace Bars.Homework.Common
 		/// </summary>
 		public void Configure(IApplicationBuilder builder)
 			=> builder
+				.UseDeveloperExceptionPage()
 				.UseRouting()
 				.UseEndpoints(endpointBuilder => endpointBuilder.MapControllers())
 				.UseSwagger()

@@ -1,6 +1,6 @@
 <Project>
 
-	<Import Project="$(MSBuildThisFileDirectory)\common.api.props" />
+	<Import Project="$(MSBuildThisFileDirectory)\common.props" />
 
 	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
