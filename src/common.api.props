@@ -1,0 +1,10 @@
+<Project>
+
+	<Import Project="$(MSBuildThisFileDirectory)\common.api.props" />
+
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+	</PropertyGroup>
+
+</Project>

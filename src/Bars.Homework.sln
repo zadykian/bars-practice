@@ -5,6 +5,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{EE3B163A-288A-4D8E-BB18-27DAC810E6F0}"
 ProjectSection(SolutionItems) = preProject
 	common.props = common.props
+	common.api.props = common.api.props
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.Homework.Common", "Bars.Homework.Common\Bars.Homework.Common.csproj", "{AFBD0420-C393-451F-92B9-882A5A195845}"
