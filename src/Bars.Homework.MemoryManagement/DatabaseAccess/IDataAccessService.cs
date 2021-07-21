@@ -13,7 +13,7 @@ namespace Bars.Homework.MemoryManagement.DatabaseAccess
 		/// Load objects from data storage which belong to group with <paramref name="groupId"/>.
 		/// </summary>
 		/// <param name="groupId">
-		///     Group identifier.
+		/// Group identifier.
 		/// </param>
 		IEnumerable<BizObject> Load(Guid groupId);
 	}
