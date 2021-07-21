@@ -27,16 +27,21 @@ namespace Bars.Homework.MemoryManagement
 					options.ValidateScopes = true;
 					options.ValidateOnBuild = true;
 				})
-				.ConfigureServices(services =>
-					services
-						.AddScoped<IDbConnection>(provider => provider
-							.GetRequiredService<IConfiguration>()
-							.GetConnectionString("Default")
-							.To(connectionString => new NpgsqlConnection(connectionString)))
-						.AddScoped<IDataAccessService, DataAccessService>()
-						.AddScoped<IVerySeriousBusiness, VerySeriousBusiness>())
+				.ConfigureServices(ConfigureServices)
 				.EnableHttpApi()
 				.Build()
 				.RunAsync();
+
+		/// <summary>
+		/// Configure application services. 
+		/// </summary>
+		private static void ConfigureServices(IServiceCollection services)
+			=> services
+				.AddScoped<IDbConnection>(provider => provider
+					.GetRequiredService<IConfiguration>()
+					.GetConnectionString("Default")
+					.To(connectionString => new NpgsqlConnection(connectionString)))
+				.AddScoped<IDataAccessService, DataAccessService>()
+				.AddScoped<IVerySeriousBusiness, VerySeriousBusiness>();
 	}
 }

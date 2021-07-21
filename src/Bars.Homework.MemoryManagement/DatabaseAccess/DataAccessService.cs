@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Data;
+using System.Linq;
 using Bars.Homework.MemoryManagement.Entities;
 using Dapper;
 
@@ -25,8 +27,15 @@ namespace Bars.Homework.MemoryManagement.DatabaseAccess
 			{
 				return bizObjects;
 			}
-			
-			var res = dbConnection.Query<BizObject>("select * from ")
+
+			var res = dbConnection
+				.Query<BizObject>("select * from todo")
+				.Where(bizObject => bizObject.GroupId == groupId)
+				.ToImmutableArray();
+
+			var cacheKey = new CacheKey(groupId);
+			cache[cacheKey] = res;
+			return res;
 		}
 
 		private class CacheKey
