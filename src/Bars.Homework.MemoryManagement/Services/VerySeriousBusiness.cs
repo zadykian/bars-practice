@@ -6,6 +6,9 @@ namespace Bars.Homework.MemoryManagement.Services
 	internal class VerySeriousBusiness  : IVerySeriousBusiness
 	{
 		/// <inheritdoc />
-		Task IVerySeriousBusiness.DoItAsync() => throw new System.NotImplementedException();
+		Task IVerySeriousBusiness.DoItAsync()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

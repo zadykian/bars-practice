@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Bars.Homework.Common;
 using Bars.Homework.MemoryManagement.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,8 @@ namespace Bars.Homework.MemoryManagement.Controllers
 	/// </summary>
 	public class SomeBizController : ApiControllerBase
 	{
+		private static int CallCount => 10000;
+
 		private readonly IVerySeriousBusiness verySeriousBusiness;
 
 		/// <param name="verySeriousBusiness">
@@ -24,7 +27,10 @@ namespace Bars.Homework.MemoryManagement.Controllers
 		[HttpPost]
 		public async Task<IActionResult> DoSomeSeriousBusinessAsync()
 		{
-			await Task.CompletedTask;
+			await AsyncEnumerable
+				.Range(0, CallCount)
+				.ForEachAwaitAsync(async _ => await verySeriousBusiness.DoItAsync());
+
 			return Ok();
 		}
 	}

@@ -1,9 +1,13 @@
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Bars.Homework.Common;
+using Bars.Homework.MemoryManagement.DatabaseAccess;
 using Bars.Homework.MemoryManagement.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Npgsql;
 
 namespace Bars.Homework.MemoryManagement
 {
@@ -24,7 +28,13 @@ namespace Bars.Homework.MemoryManagement
 					options.ValidateOnBuild = true;
 				})
 				.ConfigureServices(services =>
-					services.AddTransient<IVerySeriousBusiness, VerySeriousBusiness>())
+					services
+						.AddScoped<IDbConnection>(provider => provider
+							.GetRequiredService<IConfiguration>()
+							.GetConnectionString("Default")
+							.To(connectionString => new NpgsqlConnection(connectionString)))
+						.AddScoped<IDataAccessService, DataAccessService>()
+						.AddScoped<IVerySeriousBusiness, VerySeriousBusiness>())
 				.EnableHttpApi()
 				.Build()
 				.RunAsync();
