@@ -11,7 +11,7 @@ namespace Bars.Homework.MemoryManagement.Controllers
 	/// </summary>
 	public class SomeBizController : ApiControllerBase
 	{
-		private static int CallCount => 10000;
+		private static int CallCount => 1024;
 
 		private readonly IVerySeriousBusiness verySeriousBusiness;
 
