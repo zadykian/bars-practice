@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Bars.Practice.MemoryManagement.Entities;
 
 namespace Bars.Practice.MemoryManagement.DatabaseAccess
@@ -13,8 +14,8 @@ namespace Bars.Practice.MemoryManagement.DatabaseAccess
 		/// Load objects from data storage which belong to group with <paramref name="groupId"/>.
 		/// </summary>
 		/// <param name="groupId">
-		/// Group identifier.
+		///     Group identifier.
 		/// </param>
-		IEnumerable<BizObject> Load(Guid groupId);
+		ValueTask<IEnumerable<BizObject>> LoadAsync(Guid groupId);
 	}
 }

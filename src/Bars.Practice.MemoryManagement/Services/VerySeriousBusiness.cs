@@ -1,14 +1,22 @@
+using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Bars.Practice.MemoryManagement.DatabaseAccess;
 
 namespace Bars.Practice.MemoryManagement.Services
 {
 	/// <inheritdoc />
-	internal class VerySeriousBusiness  : IVerySeriousBusiness
+	internal class VerySeriousBusiness : IVerySeriousBusiness
 	{
+		private readonly IDataAccessService dataAccessService;
+
+		public VerySeriousBusiness(IDataAccessService dataAccessService)
+			=> this.dataAccessService = dataAccessService;
+
 		/// <inheritdoc />
-		Task IVerySeriousBusiness.DoItAsync()
+		async Task IVerySeriousBusiness.ProcessObjectsAsync(Guid objectsGuid)
 		{
-			throw new System.NotImplementedException();
+			var objectsFromSingleGroup = (await dataAccessService.LoadAsync(objectsGuid)).ToArray();
 		}
 	}
 }

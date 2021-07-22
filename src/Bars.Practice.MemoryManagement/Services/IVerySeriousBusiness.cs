@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Bars.Practice.MemoryManagement.Services
 {
@@ -8,8 +9,11 @@ namespace Bars.Practice.MemoryManagement.Services
 	public interface IVerySeriousBusiness
 	{
 		/// <summary>
-		/// Do it, yesterday you said tomorrow.
+		/// Process some business objects.
 		/// </summary>
-		Task DoItAsync();
+		/// <param name="objectsGuid">
+		/// Objects' group identifier.
+		/// </param>
+		Task ProcessObjectsAsync(Guid objectsGuid);
 	}
 }

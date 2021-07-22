@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using Bars.Practice.MemoryManagement.Entities;
 using Dapper;
 
@@ -21,15 +22,16 @@ namespace Bars.Practice.MemoryManagement.DatabaseAccess
 		public DataAccessService(IDbConnection dbConnection) => this.dbConnection = dbConnection;
 
 		/// <inheritdoc />
-		IEnumerable<BizObject> IDataAccessService.Load(Guid groupId)
+		async ValueTask<IEnumerable<BizObject>> IDataAccessService.LoadAsync(Guid groupId)
 		{
 			if (cache.TryGetValue(new CacheKey(groupId), out var bizObjects))
 			{
 				return bizObjects;
 			}
 
-			var res = dbConnection
-				.Query<BizObject>("select * from todo")
+			var loaded = await dbConnection.QueryAsync<BizObject>("select * from todo");
+
+			var res = loaded
 				.Where(bizObject => bizObject.GroupId == groupId)
 				.ToImmutableArray();
 
