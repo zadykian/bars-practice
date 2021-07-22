@@ -28,5 +28,11 @@ namespace Bars.Practice.MemoryManagement.Entities
 		/// Object's description.
 		/// </summary>
 		public string Description { get; }
+
+		/// <inheritdoc />
+		public override string ToString()
+			=> $"{nameof(Id)}: {Id}; " +
+			   $"{nameof(GroupId)}: {GroupId}; " +
+			   $"{nameof(Description)}: {Description}";
 	}
 }

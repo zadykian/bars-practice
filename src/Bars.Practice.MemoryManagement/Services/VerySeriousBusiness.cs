@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Bars.Practice.MemoryManagement.DatabaseAccess;
@@ -15,8 +16,12 @@ namespace Bars.Practice.MemoryManagement.Services
 
 		/// <inheritdoc />
 		async Task IVerySeriousBusiness.ProcessObjectsAsync(Guid objectsGuid)
-		{
-			var objectsFromSingleGroup = (await dataAccessService.LoadAsync(objectsGuid)).ToArray();
-		}
+			=> (await dataAccessService.LoadAsync(objectsGuid))
+				.ToList()
+				.ForEach(bizObject =>
+				{
+					var fileName = Path.Combine(Environment.CurrentDirectory, "biz-objects.txt");
+					File.AppendAllText(fileName, bizObject.ToString());
+				});
 	}
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Bars.Practice.Common;
 using Bars.Practice.MemoryManagement.Services;
@@ -12,8 +11,6 @@ namespace Bars.Practice.MemoryManagement.Controllers
 	/// </summary>
 	public class SomeBizController : ApiControllerBase
 	{
-		private static int CallCount => 1024;
-
 		private readonly IVerySeriousBusiness verySeriousBusiness;
 
 		/// <param name="verySeriousBusiness">
@@ -31,10 +28,7 @@ namespace Bars.Practice.MemoryManagement.Controllers
 		[HttpPost]
 		public async Task<IActionResult> DoSomeSeriousBusinessAsync([FromQuery] Guid objectsGuid)
 		{
-			await AsyncEnumerable
-				.Range(0, CallCount)
-				.ForEachAwaitAsync(async _ => await verySeriousBusiness.ProcessObjectsAsync(objectsGuid));
-
+			await verySeriousBusiness.ProcessObjectsAsync(objectsGuid);
 			return Ok();
 		}
 	}
