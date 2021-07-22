@@ -7,27 +7,24 @@ namespace Bars.Practice.MemoryManagement.Entities
 	/// </summary>
 	internal class BizObject
 	{
-		public BizObject(long id, Guid groupId, string description)
+		private BizObject()
 		{
-			Id = id;
-			GroupId = groupId;
-			Description = description;
 		}
 
 		/// <summary>
 		/// Object identifier.
 		/// </summary>
-		public long Id { get; }
+		public long Id { get; private set; }
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public Guid GroupId { get; }
+		public Guid GroupId { get; private set; }
 
 		/// <summary>
 		/// Object's description.
 		/// </summary>
-		public string Description { get; }
+		public string? Description { get; private set; }
 
 		/// <inheritdoc />
 		public override string ToString()

@@ -19,7 +19,13 @@ namespace Bars.Practice.MemoryManagement.DatabaseAccess
 
 		private readonly IDbConnection dbConnection;
 
-		public DataAccessService(IDbConnection dbConnection) => this.dbConnection = dbConnection;
+		public DataAccessService(
+			IMigrator migrator,
+			IDbConnection dbConnection)
+		{
+			migrator.CreateSchema();
+			this.dbConnection = dbConnection;
+		}
 
 		/// <inheritdoc />
 		async ValueTask<IEnumerable<BizObject>> IDataAccessService.LoadAsync(Guid groupId)
@@ -29,7 +35,13 @@ namespace Bars.Practice.MemoryManagement.DatabaseAccess
 				return bizObjects;
 			}
 
-			var loaded = await dbConnection.QueryAsync<BizObject>("select * from todo");
+			var loaded = await dbConnection
+				.QueryAsync<BizObject>($@"
+					select
+						id          as ""{nameof(BizObject.Id)}"",
+						group_id    as ""{nameof(BizObject.GroupId)}"",
+						description as ""{nameof(BizObject.Description)}"",
+					from memory_management_practice.biz_objects");
 
 			var res = loaded
 				.Where(bizObject => bizObject.GroupId == groupId)

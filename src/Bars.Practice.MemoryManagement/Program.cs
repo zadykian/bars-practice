@@ -41,6 +41,7 @@ namespace Bars.Practice.MemoryManagement
 					.GetRequiredService<IConfiguration>()
 					.GetConnectionString("Default")
 					.To(connectionString => new NpgsqlConnection(connectionString)))
+				.AddScoped<IMigrator, Migrator>()
 				.AddScoped<IDataAccessService, DataAccessService>()
 				.AddScoped<IVerySeriousBusiness, VerySeriousBusiness>();
 	}
