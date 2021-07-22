@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bars.Homework.MemoryManagement.Entities;
+using Bars.Practice.MemoryManagement.Entities;
 
-namespace Bars.Homework.MemoryManagement.DatabaseAccess
+namespace Bars.Practice.MemoryManagement.DatabaseAccess
 {
 	/// <summary>
 	/// Data access service.

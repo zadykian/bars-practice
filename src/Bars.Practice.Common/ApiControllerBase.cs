@@ -2,7 +2,7 @@ using System.Net.Mime;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bars.Homework.Common
+namespace Bars.Practice.Common
 {
 	/// <summary>
 	/// Base type for API controllers.

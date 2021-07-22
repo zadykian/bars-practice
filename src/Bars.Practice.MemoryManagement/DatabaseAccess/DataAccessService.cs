@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Data;
 using System.Linq;
-using Bars.Homework.MemoryManagement.Entities;
+using Bars.Practice.MemoryManagement.Entities;
 using Dapper;
 
-namespace Bars.Homework.MemoryManagement.DatabaseAccess
+namespace Bars.Practice.MemoryManagement.DatabaseAccess
 {
 	/// <inheritdoc />
 	internal class DataAccessService : IDataAccessService

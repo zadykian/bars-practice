@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Bars.Homework.Common;
-using Bars.Homework.MemoryManagement.Services;
+using Bars.Practice.Common;
+using Bars.Practice.MemoryManagement.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bars.Homework.MemoryManagement.Controllers
+namespace Bars.Practice.MemoryManagement.Controllers
 {
 	/// <summary>
 	/// Biz controller.

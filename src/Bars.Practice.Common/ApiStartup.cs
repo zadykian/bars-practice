@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Bars.Homework.Common
+namespace Bars.Practice.Common
 {
 	/// <summary>
 	/// Default HTTP API application startup.

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Bars.Homework.Common
+namespace Bars.Practice.Common
 {
 	/// <summary>
 	/// Extension methods for <see cref="IHostBuilder"/> type.

@@ -1,6 +1,6 @@
 using System;
 
-namespace Bars.Homework.Common
+namespace Bars.Practice.Common
 {
 	/// <summary>
 	/// Generic extension methods.

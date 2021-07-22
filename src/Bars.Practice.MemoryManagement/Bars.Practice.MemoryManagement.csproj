@@ -4,7 +4,7 @@
 	<Import Project="$(MSBuildThisFileDirectory)\..\common.data-access.props" />
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Bars.Homework.Common\Bars.Homework.Common.csproj" />
+	  <ProjectReference Include="..\Bars.Practice.Common\Bars.Practice.Common.csproj" />
 	</ItemGroup>
 
 </Project>

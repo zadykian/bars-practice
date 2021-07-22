@@ -1,6 +1,6 @@
 using System;
 
-namespace Bars.Homework.MemoryManagement.Entities
+namespace Bars.Practice.MemoryManagement.Entities
 {
 	/// <summary>
 	/// Some abstract business entity.

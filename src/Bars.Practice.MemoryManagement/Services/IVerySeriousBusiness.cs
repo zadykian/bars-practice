@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Bars.Homework.MemoryManagement.Services
+namespace Bars.Practice.MemoryManagement.Services
 {
 	/// <summary>
 	/// A very serious business service.
