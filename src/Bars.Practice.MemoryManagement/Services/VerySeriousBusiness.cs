@@ -20,7 +20,8 @@ namespace Bars.Practice.MemoryManagement.Services
 				.ToList()
 				.ForEach(bizObject =>
 				{
-					var fileName = Path.Combine(Environment.CurrentDirectory, "biz-objects.txt");
+					var fileName = Path.Combine(Environment.CurrentDirectory, "biz-objects.data.txt");
+					File.AppendAllText(fileName, Environment.NewLine);
 					File.AppendAllText(fileName, bizObject.ToString());
 				});
 	}

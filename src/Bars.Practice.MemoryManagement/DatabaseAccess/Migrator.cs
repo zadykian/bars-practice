@@ -33,15 +33,15 @@ namespace Bars.Practice.MemoryManagement.DatabaseAccess
 				insert into memory_management_practice.biz_objects (group_id, description)
 				select
 					'82433680-da5f-49c3-a116-06af6fcad5df',
-					repeat(concat_ws('_', 'description', int_value), 1000)
-				from generate_series(1, 1000) as int_values(int_value)");
+					concat_ws('_', 'description', int_value)
+				from generate_series(1, 100) as int_values(int_value)");
 
 			dbConnection.Execute(@"
 				insert into memory_management_practice.biz_objects (group_id, description)
 				select
 					'a8656f5e-70d4-4591-8449-da63f4593986',
-					repeat(concat_ws('_', 'description', int_value), 1000)
-				from generate_series(1, 1000) as int_values(int_value)");
+					concat_ws('_', 'description', int_value)
+				from generate_series(1, 10000) as int_values(int_value)");
 
 			isInitialized = true;
 		}

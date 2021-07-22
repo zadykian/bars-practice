@@ -40,7 +40,7 @@ namespace Bars.Practice.MemoryManagement.DatabaseAccess
 					select
 						id          as ""{nameof(BizObject.Id)}"",
 						group_id    as ""{nameof(BizObject.GroupId)}"",
-						description as ""{nameof(BizObject.Description)}"",
+						description as ""{nameof(BizObject.Description)}""
 					from memory_management_practice.biz_objects");
 
 			var res = loaded
